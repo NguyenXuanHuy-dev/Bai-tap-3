@@ -1,0 +1,17 @@
+@model bai1.Models.SanPhamViewModel
+
+@{
+    ViewData["Title"] = "Bài Tập 2";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Thông tin sản phẩm</h1>
+    <div class="card mx-auto" style="width: 24rem;">
+        <img src="@Model.AnhMoTa" class="card-img-top" alt="@Model.TenSanPham">
+        <div class="card-body">
+            <h5 class="card-title">@Model.TenSanPham</h5>
+            <p class="card-text text-danger fw-bold">Giá bán: @Model.GiaBan.ToString("N0") VNĐ</p>
+            <a href="#" class="btn btn-primary">Mua ngay</a>
+        </div>
+    </div>
+</div>

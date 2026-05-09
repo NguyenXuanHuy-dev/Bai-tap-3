@@ -1,0 +1,153 @@
+@{
+    ViewData["Title"] = "Xác Nhận Đăng Ký";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<div class="luxury-wrapper py-5">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="premium-card text-center">
+                    <div class="success-crown mb-4">
+                        <i class="bi bi-patch-check"></i>
+                    </div>
+                    
+                    <h2 class="premium-title mb-2">Đăng Ký Thành Công</h2>
+                    <p class="premium-subtitle mb-5">Xác Nhận Kết Quả Học Thuật</p>
+
+                    <div class="luxury-divider mb-5 mx-auto"></div>
+
+                    <div class="personal-message mb-5">
+                        <div class="text-muted small text-uppercase mb-2" style="letter-spacing: 3px;">Chào mừng bạn đến với Cổng thông tin</div>
+                        <div class="display-6 fw-bold" style="color: #fff;">@ViewBag.HoTen</div>
+                    </div>
+
+                    <div class="luxury-details-grid row g-4 mb-5">
+                        <div class="col-6 border-end" style="border-color: rgba(197, 160, 89, 0.1) !important;">
+                            <div class="small fw-bold text-uppercase" style="color: var(--luxury-gold); letter-spacing: 1px;">Mã Số</div>
+                            <div class="h5 mt-2">@ViewBag.MSSV</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="small fw-bold text-uppercase" style="color: var(--luxury-gold); letter-spacing: 1px;">Chuyên Ngành</div>
+                            <div class="h5 mt-2">@ViewBag.ChuyenNganh</div>
+                        </div>
+                    </div>
+
+                    <div class="metrics-panel p-4 rounded-4 mb-5" style="background: rgba(197, 160, 89, 0.03); border: 1px solid rgba(197, 160, 89, 0.1);">
+                        <div class="small text-muted mb-2 italic">Mật Độ Đăng Ký Hệ Thống</div>
+                        <div class="display-3 fw-bold" style="color: var(--luxury-gold);">@ViewBag.SameMajorCount</div>
+                        <div class="small text-muted mt-1">Sinh viên cùng lựa chọn chuyên ngành này</div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center pt-4 border-top" style="border-color: rgba(255,255,255,0.05) !important;">
+                        <a asp-action="Index" class="btn-luxury-outline">
+                            Quay Lại Cổng
+                        </a>
+                        <button onclick="window.print()" class="btn-luxury-action">
+                            In Chứng Nhận
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --luxury-dark: #0a0a0c;
+        --luxury-gold: #c5a059;
+        --luxury-text: #e2e2e2;
+        --luxury-accent: #1a1a1e;
+    }
+
+    body {
+        background-color: var(--luxury-dark);
+        background-image: radial-gradient(circle at 50% 10%, #1c1c22 0%, var(--luxury-dark) 80%);
+        color: var(--luxury-text);
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+    }
+
+    .premium-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: #ffffff;
+    }
+
+    .premium-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--luxury-gold);
+    }
+
+    .premium-card {
+        background: var(--luxury-accent);
+        border: 1px solid rgba(197, 160, 89, 0.1);
+        border-radius: 40px;
+        padding: 70px 50px;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    }
+
+    .success-crown {
+        font-size: 4rem;
+        color: var(--luxury-gold);
+        text-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+    }
+
+    .luxury-divider {
+        width: 100px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--luxury-gold), transparent);
+    }
+
+    .btn-luxury-action {
+        background: var(--luxury-gold);
+        color: #000;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 100px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.7rem;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn-luxury-outline {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px 40px;
+        border-radius: 100px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.7rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+    .btn-luxury-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+    }
+
+    .btn-luxury-outline:hover {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    @@media print {
+        .btn-luxury-outline, .btn-luxury-action { display: none; }
+        .premium-card { box-shadow: none !important; border: 1px solid #ddd !important; background: white !important; color: black !important; }
+        .premium-title, .premium-subtitle, .personal-message, .display-6, .h5, .display-3 { color: black !important; }
+        body { background: white !important; }
+    }
+</style>
